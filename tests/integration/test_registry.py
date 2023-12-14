@@ -2,7 +2,8 @@ import uuid
 
 import pytest
 
-from spark8t.domain import PropertyFile, ServiceAccount
+from spark8t.domain import ServiceAccount
+from spark8t.utils import PropertyFile
 
 
 @pytest.mark.usefixtures("integration_test")

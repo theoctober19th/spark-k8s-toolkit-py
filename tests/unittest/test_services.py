@@ -14,14 +14,12 @@ from lightkube.types import PatchType
 from OpenSSL import crypto
 
 from spark8t.cli import defaults
-from spark8t.domain import KubernetesResourceType, PropertyFile, ServiceAccount
+from spark8t.domain import KubernetesResourceType, ServiceAccount
 from spark8t.literals import MANAGED_BY_LABELNAME, PRIMARY_LABELNAME, SPARK8S_LABEL
-from spark8t.services import (
-    K8sServiceAccountRegistry,
-    KubeInterface,
-    LightKube,
-    parse_conf_overrides,
-)
+from spark8t.registry import K8sServiceAccountRegistry
+from spark8t.backend import KubeInterface, LightKube
+from spark8t.utils import parse_conf_overrides, PropertyFile
+
 
 ####################################################################################################
 # Helpers
@@ -1270,7 +1268,7 @@ def test_kube_interface_select_by_master(mocker):
 
 
 def test_k8s_registry_retrieve_account_configurations(mocker):
-    mock_kube_interface = mocker.patch("spark8t.services.KubeInterface")
+    mock_kube_interface = mocker.patch("spark8t.backend.KubeInterface")
     data = {"k": "v"}
     mock_kube_interface.get_secret.return_value = {"data": data}
     registry = K8sServiceAccountRegistry(mock_kube_interface)
@@ -1283,7 +1281,7 @@ def test_k8s_registry_retrieve_account_configurations(mocker):
 
 
 def test_k8s_registry_all(mocker):
-    mock_kube_interface = mocker.patch("spark8t.services.KubeInterface")
+    mock_kube_interface = mocker.patch("spark8t.backend.KubeInterface")
     data = {"k": "v"}
     mock_kube_interface.get_secret.return_value = {"data": data}
 
@@ -1323,7 +1321,7 @@ def test_k8s_registry_all(mocker):
 
 
 def test_k8s_registry_set_primary(mocker):
-    mock_kube_interface = mocker.patch("spark8t.services.KubeInterface")
+    mock_kube_interface = mocker.patch("spark8t.backend.KubeInterface")
     data = {"k": "v"}
     mock_kube_interface.get_secret.return_value = {"data": data}
 
@@ -1388,7 +1386,7 @@ def test_k8s_registry_set_primary(mocker):
 
 
 def test_k8s_registry_create(mocker):
-    mock_kube_interface = mocker.patch("spark8t.services.KubeInterface")
+    mock_kube_interface = mocker.patch("spark8t.backend.KubeInterface")
     data = {"k": "v"}
     mock_kube_interface.get_secret.return_value = {"data": data}
 
@@ -1519,7 +1517,7 @@ def test_k8s_registry_create(mocker):
 
 
 def test_k8s_registry_delete(mocker):
-    mock_kube_interface = mocker.patch("spark8t.services.KubeInterface")
+    mock_kube_interface = mocker.patch("spark8t.backend.KubeInterface")
     data = {"k": "v"}
     mock_kube_interface.get_secret.return_value = {"data": data}
 

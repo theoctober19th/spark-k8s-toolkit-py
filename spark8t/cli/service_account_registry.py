@@ -12,10 +12,11 @@ from spark8t.cli.params import (
     parse_arguments_with,
     spark_user_parser,
 )
-from spark8t.domain import PropertyFile, ServiceAccount
+from spark8t.domain import ServiceAccount
 from spark8t.exceptions import AccountNotFound, PrimaryAccountNotFound
-from spark8t.services import K8sServiceAccountRegistry, parse_conf_overrides
-from spark8t.utils import setup_logging
+from spark8t.registry import K8sServiceAccountRegistry
+from spark8t.utils import setup_logging, parse_conf_overrides
+from spark8t.utils import PropertyFile
 
 
 def build_service_account_from_args(args, registry) -> ServiceAccount:

@@ -4,7 +4,8 @@ import pytest
 from lightkube.resources.core_v1 import Namespace
 
 from spark8t.domain import Defaults
-from spark8t.services import K8sServiceAccountRegistry, KubeInterface, LightKube
+from spark8t.backend import KubeInterface, LightKube
+from spark8t.registry import K8sServiceAccountRegistry
 
 integration_test_flag = bool(int(os.environ.get("IE_TEST", "0")))
 

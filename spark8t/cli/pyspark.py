@@ -16,7 +16,8 @@ from spark8t.cli.params import (
 )
 from spark8t.domain import ServiceAccount
 from spark8t.exceptions import AccountNotFound, PrimaryAccountNotFound
-from spark8t.services import K8sServiceAccountRegistry, SparkInterface
+from spark8t.registry import K8sServiceAccountRegistry
+from spark8t.spark_interface import SparkInterface
 from spark8t.utils import setup_logging
 
 

@@ -3,7 +3,7 @@ from argparse import ArgumentParser, Namespace
 from typing import Callable, List, Optional
 
 from spark8t.cli import defaults
-from spark8t.services import AbstractKubeInterface, KubeInterface, LightKube
+from spark8t.backend import AbstractKubeInterface, KubeInterface, LightKube
 from spark8t.utils import DEFAULT_LOGGING_FILE, config_from_file, environ
 
 
