@@ -116,7 +116,7 @@ def test_create_service_account(namespace, backend, action, resource):
     }
     assert actual_labels == expected_labels
 
-    # Check for RBAC permissons
+    # Check for RBAC permissions
     sa_identifier = f"system:serviceaccount:{namespace}:{username}"
     rbac_check = subprocess.run(
         ["kubectl", "auth", "can-i", action, resource, "--namespace", namespace, "--as", sa_identifier],
