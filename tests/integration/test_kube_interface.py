@@ -3,8 +3,7 @@ from time import sleep
 import pytest
 
 from spark8t.domain import KubernetesResourceType
-from spark8t.utils import PropertyFile
-from spark8t.utils import umask_named_temporary_file
+from spark8t.utils import PropertyFile, umask_named_temporary_file
 
 
 @pytest.mark.parametrize(

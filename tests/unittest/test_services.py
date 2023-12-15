@@ -13,13 +13,12 @@ from lightkube.resources.rbac_authorization_v1 import Role, RoleBinding
 from lightkube.types import PatchType
 from OpenSSL import crypto
 
+from spark8t.backend import KubeInterface, LightKube
 from spark8t.cli import defaults
 from spark8t.domain import KubernetesResourceType, ServiceAccount
 from spark8t.literals import MANAGED_BY_LABELNAME, PRIMARY_LABELNAME, SPARK8S_LABEL
 from spark8t.registry import K8sServiceAccountRegistry
-from spark8t.backend import KubeInterface, LightKube
-from spark8t.utils import parse_conf_overrides, PropertyFile
-
+from spark8t.utils import PropertyFile, parse_conf_overrides
 
 ####################################################################################################
 # Helpers

@@ -4,7 +4,7 @@ import uuid
 
 from spark8t.domain import Defaults, ServiceAccount
 from spark8t.registry import InMemoryAccountRegistry
-from spark8t.utils import umask_named_temporary_file, PropertyFile
+from spark8t.utils import PropertyFile, umask_named_temporary_file
 
 
 def test_defaults():

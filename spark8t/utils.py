@@ -66,7 +66,6 @@ DEFAULT_LOGGING_FILE = os.path.join(
 )
 
 
-
 def config_from_json(path_to_file: str = DEFAULT_LOGGING_FILE) -> None:
     """
     Configure logger from json
@@ -568,4 +567,3 @@ def parse_conf_overrides(
                         "Please check input arguments and try again."
                     )
     return PropertyFile(conf_overrides)
-

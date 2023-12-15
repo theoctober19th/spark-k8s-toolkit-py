@@ -4,16 +4,10 @@ import base64
 import subprocess
 from typing import Any, Dict, List, Optional, Union
 
-from spark8t.domain import (
-    KubernetesResourceType,
-)
+from spark8t.domain import KubernetesResourceType
 from spark8t.exceptions import AccountNotFound, K8sResourceNotFound
-from spark8t.literals import MANAGED_BY_LABELNAME, PRIMARY_LABELNAME, SPARK8S_LABEL
-from spark8t.utils import (
-    execute_command_output,
-    listify,
-    parse_yaml_shell_output,
-)
+from spark8t.utils import execute_command_output, listify, parse_yaml_shell_output
+
 from .interface import AbstractKubeInterface
 
 
@@ -338,4 +332,3 @@ class KubeInterface(AbstractKubeInterface):
             if self.context_name in contexts_for_api_server
             else self.with_context(contexts_for_api_server[0])
         )
-

@@ -5,6 +5,7 @@ from typing import Dict, Optional
 
 from spark8t.utils import PropertyFile
 
+
 class Defaults:
     """Class containing all relevant defaults for the application."""
 

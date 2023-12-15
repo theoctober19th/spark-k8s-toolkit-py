@@ -3,12 +3,8 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
 
-from spark8t.domain import (
-    ServiceAccount,
-)
-from spark8t.utils import (
-    WithLogging, PropertyFile
-)
+from spark8t.domain import ServiceAccount
+from spark8t.utils import PropertyFile, WithLogging
 
 
 class AbstractServiceAccountRegistry(WithLogging, ABC):
@@ -88,4 +84,3 @@ class AbstractServiceAccountRegistry(WithLogging, ABC):
             account_id: account id to be used for retrieving the service account.
         """
         pass
-

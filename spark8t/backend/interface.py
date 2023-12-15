@@ -6,13 +6,9 @@ from typing import Any, Dict, List, Optional, Union
 
 import yaml
 
-from spark8t.domain import (
-    KubernetesResourceType
-)
+from spark8t.domain import KubernetesResourceType
 from spark8t.exceptions import AccountNotFound
-from spark8t.utils import (
-    WithLogging,
-)
+from spark8t.utils import WithLogging
 
 
 class AbstractKubeInterface(WithLogging, metaclass=ABCMeta):

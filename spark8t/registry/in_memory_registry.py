@@ -2,12 +2,11 @@
 
 from typing import Dict, List, Optional
 
-from spark8t.domain import (
-    ServiceAccount,
-)
+from spark8t.domain import ServiceAccount
 from spark8t.exceptions import AccountNotFound
 from spark8t.registry import AbstractServiceAccountRegistry
 from spark8t.utils import PropertyFile
+
 
 class InMemoryAccountRegistry(AbstractServiceAccountRegistry):
     def __init__(self, cache: Dict[str, ServiceAccount]):
@@ -99,4 +98,3 @@ class InMemoryAccountRegistry(AbstractServiceAccountRegistry):
 
     def get(self, account_id: str) -> Optional[ServiceAccount]:
         return self.cache.get(account_id)
-

@@ -4,20 +4,11 @@
 import os
 import socket
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, List, Optional
 
-
-from spark8t.domain import (
-    Defaults,
-    ServiceAccount,
-)
-from spark8t.utils import (
-    WithLogging,
-    PropertyFile,
-    environ,
-    umask_named_temporary_file,
-)
 from spark8t.backend import AbstractKubeInterface
+from spark8t.domain import Defaults, ServiceAccount
+from spark8t.utils import PropertyFile, WithLogging, environ, umask_named_temporary_file
 
 
 class SparkDeployMode(str, Enum):

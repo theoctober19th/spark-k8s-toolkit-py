@@ -15,15 +15,10 @@ from lightkube.resources.core_v1 import ServiceAccount as LightKubeServiceAccoun
 from lightkube.resources.rbac_authorization_v1 import Role, RoleBinding
 from lightkube.types import PatchType
 
-from spark8t.domain import (
-    Defaults,
-    KubernetesResourceType,
-)
+from spark8t.domain import Defaults, KubernetesResourceType
 from spark8t.exceptions import K8sResourceNotFound
-from spark8t.utils import (
-    filter_none,
-    PropertyFile
-)
+from spark8t.utils import PropertyFile, filter_none
+
 from .interface import AbstractKubeInterface
 
 
@@ -403,4 +398,3 @@ class LightKube(AbstractKubeInterface):
             if "not found" in e.status.message:
                 return False
             raise e
-

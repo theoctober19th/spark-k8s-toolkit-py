@@ -2,10 +2,8 @@
 
 from typing import Any, Dict, List, Optional
 
-from spark8t.domain import (
-    KubernetesResourceType,
-    ServiceAccount,
-)
+from spark8t.backend import AbstractKubeInterface
+from spark8t.domain import KubernetesResourceType, ServiceAccount
 from spark8t.exceptions import AccountNotFound, K8sResourceNotFound
 from spark8t.literals import MANAGED_BY_LABELNAME, PRIMARY_LABELNAME, SPARK8S_LABEL
 from spark8t.utils import (
@@ -15,7 +13,7 @@ from spark8t.utils import (
 )
 
 from .interface import AbstractServiceAccountRegistry
-from spark8t.backend import AbstractKubeInterface
+
 
 class K8sServiceAccountRegistry(AbstractServiceAccountRegistry):
     """Class implementing a ServiceAccountRegistry, based on K8s."""
@@ -289,4 +287,3 @@ class K8sServiceAccountRegistry(AbstractServiceAccountRegistry):
         except K8sResourceNotFound:
             return None
         return self._build_service_account_from_raw(service_account_raw["metadata"])
-

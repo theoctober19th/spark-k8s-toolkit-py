@@ -1,9 +1,5 @@
 from .interface import AbstractKubeInterface
-from .lightkube import LightKube
 from .kubectl import KubeInterface
+from .lightkube import LightKube
 
-__all__ = [
-    "AbstractKubeInterface",
-    "LightKube",
-    "KubeInterface"
-]
+__all__ = ["AbstractKubeInterface", "LightKube", "KubeInterface"]
