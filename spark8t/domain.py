@@ -1,6 +1,6 @@
 import os
 from dataclasses import dataclass
-from enum import StrEnum
+from enum import Enum
 from typing import Dict, Optional
 
 from spark8t.utils import PropertyFile
@@ -124,7 +124,7 @@ class ServiceAccount:
         return self.extra_confs + self._k8s_configurations
 
 
-class KubernetesResourceType(StrEnum):
+class KubernetesResourceType(str, Enum):
     SERVICEACCOUNT = "serviceaccount"
     ROLE = "role"
     ROLEBINDING = "rolebinding"
