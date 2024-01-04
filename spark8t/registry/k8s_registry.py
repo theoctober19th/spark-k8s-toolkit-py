@@ -12,7 +12,7 @@ from spark8t.utils import (
     umask_named_temporary_file,
 )
 
-from .interface import AbstractServiceAccountRegistry
+from spark8t.registry.interface import AbstractServiceAccountRegistry
 
 
 class K8sServiceAccountRegistry(AbstractServiceAccountRegistry):

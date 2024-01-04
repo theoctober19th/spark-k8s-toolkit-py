@@ -4,7 +4,7 @@ from typing import Dict, List, Optional
 
 from spark8t.domain import ServiceAccount
 from spark8t.exceptions import AccountNotFound
-from spark8t.registry import AbstractServiceAccountRegistry
+from spark8t.registry.interface import AbstractServiceAccountRegistry
 from spark8t.utils import PropertyFile
 
 
