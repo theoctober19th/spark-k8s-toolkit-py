@@ -195,4 +195,3 @@ def test_create_service_account(namespace, backend, action, resource):
     )
     assert rbac_check.returncode == 0
     assert rbac_check.stdout.strip() == "yes"
-
