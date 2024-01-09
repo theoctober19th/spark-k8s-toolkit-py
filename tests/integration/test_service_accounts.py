@@ -33,16 +33,23 @@ def namespace():
 @pytest.fixture
 def namespaces_and_service_accounts():
     from collections import defaultdict
+
     result = defaultdict(list)
     for _ in range(3):
         namespace_name = str(uuid.uuid4())
         create_ns_command = ["kubectl", "create", "namespace", namespace_name]
         subprocess.run(create_ns_command, check=True)
-        
+
         for _ in range(3):
             sa_name = str(uuid.uuid4())
-            create_sa_command = ["kubectl", "create", "serviceaccount", sa_name, "-n", namespace_name
-                                ]
+            create_sa_command = [
+                "kubectl",
+                "create",
+                "serviceaccount",
+                sa_name,
+                "-n",
+                namespace_name,
+            ]
             subprocess.run(create_sa_command, check=True)
             result[namespace_name].append(sa_name)
 
@@ -51,7 +58,7 @@ def namespaces_and_service_accounts():
     for namespace_name in result.keys():
         destroy_command = ["kubectl", "delete", "namespace", namespace_name]
         subprocess.run(destroy_command, check=True)
-    
+
 
 # def test_empty_test(namespaces_and_service_accounts):
 #     result = namespaces_and_service_accounts
