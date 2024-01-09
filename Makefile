@@ -91,7 +91,7 @@ microk8s: $(k8s_tag)
 
 integration-tests: setup microk8s
 	echo "Integration tests"
-	sg microk8s "${PYTHON} tox -e integration"
+	KUBECONFIG="$$HOME/.kube/config" sg microk8s "${PYTHON} tox -e integration"
 
 clean:
 	@echo "==Cleaning environment=="
