@@ -1576,7 +1576,7 @@ class SparkInterface(WithLogging):
 
         import os
         for e in os.environ:
-            print(e)
+            print(e, os.environ(e))
         
 
         with umask_named_temporary_file(
