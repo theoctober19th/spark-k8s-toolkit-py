@@ -1574,6 +1574,11 @@ class SparkInterface(WithLogging):
             extra_args: extra arguments provided to pyspark
         """
 
+        import os
+        for e in os.environ:
+            print(e)
+        
+
         with umask_named_temporary_file(
             mode="w", prefix="spark-conf-", suffix=".conf"
         ) as t:
