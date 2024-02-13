@@ -1574,23 +1574,6 @@ class SparkInterface(WithLogging):
             extra_args: extra arguments provided to pyspark
         """
 
-        import os
-        for e in os.environ:
-            print(e, os.environ[e])
-
-        print("WITH TILDE")
-        process = subprocess.run(
-            ["cat",  "~/.kube/config"], capture_output=True, text=True
-        )
-        print(process.stdout, process.stderr)
-
-        print("WITH $HOME")
-        process = subprocess.run(
-            ["cat",  "$HOME/.kube/config"], capture_output=True, text=True
-        )
-        print(process.stdout, process.stderr)
-        
-
         with umask_named_temporary_file(
             mode="w", prefix="spark-conf-", suffix=".conf"
         ) as t:
